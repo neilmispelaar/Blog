@@ -110,8 +110,17 @@ export default defineComponent({
       default: null,
     },
     date: {
-      type: String,
+      type: Object,
       required: true,
+    },
+    layout: {
+      type: String,
+      required: false,
+      default: 'vertical',
+      validator(value) {
+        // The value must match one of these strings
+        return ['horizontal', 'vertical'].includes(value);
+      },
     },
   },
   setup() {},

@@ -4,7 +4,8 @@
       <div class="my-32 py-32">
         <section>
           <h2 class="mb-20 text-3xl text-gray-800">Blog Posts</h2>
-          <blog-list />
+          <!-- We want the horizontal layout on the home page -->
+          <blog-list :featureLayout="true" />
         </section>
       </div>
     </content-container>
