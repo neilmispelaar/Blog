@@ -1,5 +1,5 @@
 ---
-title: The some other post
+title: The some other post asdf an very long title that someone coudln't possible impagine doing tis long but yea hsure
 subtext: Updates, tips & opinions from the maintainers of Vue.js.
 date: 2021-01-11
 summary: Something something something.
