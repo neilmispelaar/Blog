@@ -21,8 +21,6 @@ module.exports = {
       (file) => file.path !== path.join(postDir, 'index.md'),
     );
 
-    console.log(files);
-
     // Need all of the data for the posts
     const data = files
       .map((file) => getPost(file.name, file.path, postDir))
@@ -74,8 +72,6 @@ const cache = new Map();
 
 function getPost(file, fullPath, postDir) {
   const myString = path.join('/', 'posts', fullPath.replace(postDir, ''));
-
-  console.log(file, fullPath, postDir, '\n', myString);
 
   const rootPath = path
     .join('/', 'posts', fullPath.replace(postDir, ''))
