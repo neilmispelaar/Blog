@@ -1,21 +1,45 @@
 <template>
   <!-- Horizontal layout -->
   <li v-if="layout === 'horizontal'" class="my-20">
-    <a :href="href">
+    <a :href="href" class="group">
       <article class="flex flex-row">
         <!-- Image at the left -->
-        <div class="w-1/2">
+        <div class="w-1/2 overflow-hidden">
           <img
-            class="h-96 w-full object-cover"
+            class="
+              h-96
+              w-full
+              object-cover
+              group-hover:scale-125
+              transform transform-gpu
+              transition-all
+              ease-in-out
+            "
             src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
             alt=""
           />
         </div>
         <!-- Content container at the right -->
-        <div class="w-1/2 p-10 bg-zinc-100 flex flex-col justify-between">
+        <div
+          class="
+            w-1/2
+            p-10
+            bg-zinc-100
+            flex flex-col
+            justify-between
+            group-hover:bg-zinc-400
+            transform
+            transition-all
+            ease-in-out
+          "
+        >
           <!-- Top -->
           <div>
-            <h2 class="text-3xl font-normal tracking-wide">{{ title }}</h2>
+            <h2
+              class="text-3xl font-normal tracking-wide group-hover:text-white"
+            >
+              {{ title }}
+            </h2>
             <div v-if="false">
               <p>{{ summary }}</p>
             </div>
