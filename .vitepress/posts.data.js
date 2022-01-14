@@ -21,20 +21,20 @@ module.exports = {
       (file) => file.path !== path.join(postDir, 'index.md'),
     );
 
-    // Need all of the data for the posts
+    // Grabs the data from the post .md files
+    // and then sorts them by date.
+    // Null date entries are sent to the end
     const data = files
       .map((file) => getPost(file.name, file.path, postDir))
-      .sort((a, b) => b.date.time - a.date.time);
+      .sort((a, b) => {
+        if (isFinite(b.date.time - a.date.time)) {
+          return b.date.time - a.date.time;
+        } else {
+          return isFinite(a.date.time) ? -1 : 1;
+        }
+      });
 
     return data;
-
-    /*
-    return fs
-      .readdirSync(postDir, { withFileTypes: true })
-      .filter((dirent) => !dirent.isDirectory())
-      .map((dirent) => getPost(dirent.name, postDir))
-      .sort((a, b) => b.date.time - a.date.time);
-*/
   },
 };
 
