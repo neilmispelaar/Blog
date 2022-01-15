@@ -24,7 +24,6 @@
                   class=""
                 >
                   <a
-                    :v-bind="attributes"
                     :href="href"
                     class="
                       block
