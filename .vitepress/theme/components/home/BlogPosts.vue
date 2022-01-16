@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white">
     <content-container>
-      <div class="my-32 py-32">
+      <div class="my-20 py-32">
         <section>
           <h2 class="mb-20 text-3xl text-gray-800">Blog Posts</h2>
           <!-- We want the horizontal layout on the home page -->
