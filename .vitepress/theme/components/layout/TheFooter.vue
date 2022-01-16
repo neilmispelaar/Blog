@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="mt-10 pt-20 bg-zinc-50">
+    <div class="bg-zinc-50">
       <h2 class="sr-only">Site footer information</h2>
 
       <content-container>
