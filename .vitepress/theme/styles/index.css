@@ -42,7 +42,7 @@
 
 @layer components {
   .article {
-    --nm-article-body: #374151; /* #3f3f46; #3f3f46; Zinc 700 */
+    --nm-article-body: @apply text-zinc-700; /* #374151; /* #3f3f46; #3f3f46; Zinc 700 */
     --nm-article-headings: #18181b; /* Zinc 900 */
     --nm-article-lead: #52525b; /* colors.zinc[600] 52525b */
     --nm-article-links: #18181b; /* Zinc 900 */
@@ -78,40 +78,41 @@
     line-height: 1.75;
   }
 
+  /** CORE ELEMENTS **/
   .article {
-    color: var(--nm-article-body, black);
-    max-width: 65ch;
-
-    /* LG modifiers */
-    font-size: 1.125rem /* 18px */;
-    line-height: 1.7777778;
+    @apply text-zinc-700 max-w-prose text-lg leading-6;
+    line-height: 1.96rem !important;
   }
 
-  .article :where([class~='lead']) {
-    color: var(--nm-article-lead);
-    font-size: 1.2222222em;
-    line-height: 1.4545455;
-    margin-top: 1.0909091em;
-    margin-bottom: 1.0909091em;
-    /*
-    font-size: 1.25em;
-    line-height: 1.6;
-    margin-top: 1.2em;
-    margin-bottom: 1.2em;
-    */
+  .article .lead {
+    @apply text-zinc-600 text-lg leading-7 my-4;
   }
-  .article :where(a) {
-    color: var(--nm-article-links);
-    text-decoration: underline;
-    font-weight: 500;
+
+  .article a {
+    @apply text-zinc-900 underline font-medium hover:text-zinc-600 transition-all duration-100 ease-in-out;
   }
-  .article :where(strong) {
-    color: var(--nm-article-bold);
-    font-weight: 600;
+
+  .article strong {
+    @apply text-zinc-900 font-semibold;
   }
-  .article :where(ol) {
-    list-style-type: decimal;
-    padding-left: 1.625em;
+
+  .article hr {
+    @apply border-t border-zinc-400 mt-12 mb-12;
+  }
+
+  .article blockquote {
+    @apply not-italic my-10 pl-4 font-medium text-zinc-500 border-l-2 border-zinc-400;
+  }
+  .article :where(blockquote p:first-of-type)::before {
+    content: open-quote;
+  }
+  .article :where(blockquote p:last-of-type)::after {
+    content: close-quote;
+  }
+
+  /** LISTS **/
+  .article ol {
+    @apply list-decimal pl-7;
   }
   .article :where(ol[type='A']) {
     list-style-type: upper-alpha;
@@ -138,68 +139,45 @@
     list-style-type: lower-roman;
   }
   .article :where(ol[type='1']) {
-    list-style-type: decimal;
+    @apply list-decimal;
   }
-  .article :where(ul) {
-    list-style-type: disc;
-    padding-left: 1.625em;
+  .article ul {
+    @apply list-disc pl-7;
   }
   .article :where(ol > li)::marker {
-    font-weight: 400;
-    color: var(--tw-prose-counters);
+    @apply text-zinc-400 font-normal;
   }
   .article :where(ul > li)::marker {
-    color: var(--tw-prose-bullets);
+    @apply text-zinc-600;
   }
-  .article :where(hr) {
-    border-color: var(--tw-prose-hr);
-    border-top-width: 1px;
-    margin-top: 3em;
-    margin-bottom: 3em;
-  }
-  .article :where(blockquote) {
-    font-weight: 500;
-    font-style: italic;
-    color: var(--tw-prose-quotes);
-    border-left-width: 0.25rem /* 4px */;
-    border-left-color: var(--tw-prose-quote-borders);
-    quotes: '\201C''\201D''\2018''\2019';
-    margin-top: 1.6em;
-    margin-bottom: 1.6em;
-    padding-left: 1em;
-  }
-  .article
-    :where(blockquote p:first-of-type):not(:where([class~='not-prose']
-        *))::before {
-    content: open-quote;
-  }
-  .article
-    :where(blockquote p:last-of-type):not(:where([class~='not-prose']
-        *))::after {
-    content: close-quote;
-  }
-  .article :where(h1) {
-    color: var(--nm-article-headings);
+
+  /** HEADINGS **/
+
+  .article h1 {
+    @apply text-zinc-700;
     font-weight: 800;
     font-size: 2.25em;
     margin-top: 0;
     margin-bottom: 0.8888889em;
     line-height: 1.1111111;
   }
-  .article :where(h1 strong) {
-    font-weight: 900;
+
+  .article h1 strong {
+    @apply font-bold;
   }
-  .article :where(h2) {
-    color: var(--nm-article-headings);
-    font-weight: 700;
-    font-size: 1.5em;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    line-height: 1.3333333;
+
+  .article h2 {
+    @apply mt-8 mb-4 text-zinc-700 font-medium text-3xl;
+    line-height: 1.3333333 !important;
   }
-  .article :where(h2 strong) {
-    font-weight: 800;
+  .article h2 strong {
+    @apply font-bold;
   }
+
+  /*
+
+
+
   .article :where(h3) {
     color: var(--nm-article-headings);
     font-weight: 600;
@@ -234,7 +212,6 @@
   .article :where(code) {
     color: var(--tw-prose-code);
     font-weight: 600;
-    /*font-size: 0.8888889em;*/
     font-size: 0.5em;
   }
   .article :where(code)::before {
@@ -255,7 +232,7 @@
     line-height: 1.7142857;
     margin-top: 1.7142857em;
     margin-bottom: 1.7142857em;
-    border-radius: 0.375rem /* 6px */;
+    border-radius: 0.375rem ;
     padding-top: 0.8571429em;
     padding-right: 1.1428571em;
     padding-bottom: 0.8571429em;
@@ -265,7 +242,7 @@
     line-height: 1.75;
     margin-top: 2em;
     margin-bottom: 2em;
-    border-radius: 0.375rem /* 6px */;
+    border-radius: 0.375rem;
     padding-top: 1em;
     padding-right: 1.5em;
     padding-bottom: 1em;
@@ -470,7 +447,7 @@
     line-height: 1.75;
     margin-top: 2em;
     margin-bottom: 2em;
-    border-radius: 0.375rem /* 6px */;
+    border-radius: 0.375rem;
     padding-top: 1em;
     padding-right: 1.5em;
     padding-bottom: 1em;
@@ -566,4 +543,5 @@
   .prose-lg > :where(:last-child):not(:where([class~='not-prose'] *)) {
     margin-bottom: 0;
   }
+  */
 }
