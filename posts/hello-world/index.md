@@ -1,10 +1,10 @@
 ---
 title: The Hello world post
+lead: This is leading text to get people excited about a thing
 subtext: Updates, tips & opinions from the maintainers of Vue.js.
 layout: BlogPost
+date: 2022-01-10
 ---
-
-[[toc]]
 
 ## Fulminibus antiqui Talia
 
@@ -38,6 +38,13 @@ ipsa.
 
 ## Viribus turis ille ieiunia signaque aequi occupat
 
+### This is a heading 3
+
+| Syntax    | Description |
+| --------- | ----------- |
+| Header    | Title       |
+| Paragraph | Text        |
+
 **Coniunx Proca** tacito partus, parcite modo sua a regem excussit **non saecula
 annis**. Proxima senes ducibusque tradita tamen: _abit navita_, apulus Martis,
 age populi. Hostis que reliquit fluctibus vicit.
@@ -55,31 +62,6 @@ Exigit [et simili litis](http://longanec.io/), ut cura denique somnos! Est mirae
 non oscula, diem [rubor](http://felix.com/distabat.php) nefas vitae quoque ego
 inde dixit, cavo, nomine?
 
-    if (drop.networking(tween)) {
-        imap.digitize(cutProgramImpression(compression_mac_overclocking),
-                host_usb_ipv);
-        gigahertzDrive /= ospfBasebandBezel;
-    }
-    pseudocodeSyn.pad += typeBetaMirror + 332747 + 3;
-    protocol(5, 44);
-    if (cronExtranet == pathPagePretest) {
-        boot_enterprise(30);
-        hoc_http_ftp.language_ascii = lifoNybbleMetafile * uml;
-        memory_signature_javascript.iphoneDbmsFile -= lossy;
-    } else {
-        tiff = android + analogMethodEncryption;
-    }
-    if (framework) {
-        horse.task_code = access * 11 - dongle;
-        web_output += touchscreenWireless;
-        clip = disk_scraping_hit;
-    } else {
-        smart -= ip_dpi_parity;
-        textFilename.memory_nanometer_hashtag *= netiquetteSdramThumbnail *
-                hardSnmpProgram + isoBiosFormula;
-        clean += microphonePretest;
-    }
-
 Torosa faciunt tellus, nostro verticibus nudis; artem Iovis monstraverat Dianae
 nudis utere. Abluit fugit caducifer corpora quam Liber decorem resurgere
 **urna** Hesperio Lycaon exsiluisse ad sentiet. Desint [est](http://ferat.org/):
@@ -88,5 +70,5 @@ repetemus iste lentae Aeolon.
 
 Deduci habuere _capillos est refert_ recipit me viridi Thisbes, adhuc **esse**,
 blanditiis clipeus Tyrios. Male iacit pacis bis cantusque suaque: Lavini inque
-ferro indefletaeque illas; levi pro. Sola _tribuente fuit_; tamen sic quo
+ferro indefletaeque illas; `1levi pro`. Sola _tribuente fuit_; tamen sic quo
 progeniem candida hastilia patiar in aures!
