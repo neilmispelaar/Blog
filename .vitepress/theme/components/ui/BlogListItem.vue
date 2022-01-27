@@ -7,7 +7,7 @@
         <div class="w-1/2 overflow-hidden">
           <img
             class="
-              h-96
+              h-[32rem]
               w-full
               object-cover
               group-hover:scale-110
