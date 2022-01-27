@@ -13,74 +13,11 @@
  * but heavily modifying the css to acheive what we want.
  * It's easier to do this than overide all of the typography plugin.
  */
-/*
-
-
-      '--tw-prose-captions': colors.zinc[500],
-      '--tw-prose-code': colors.zinc[900],
-      '--tw-prose-pre-code': colors.zinc[200],
-      '--tw-prose-pre-bg': colors.zinc[800],
-      '--tw-prose-th-borders': colors.zinc[300],
-      '--tw-prose-td-borders': colors.zinc[200],
-      '--tw-prose-invert-body': colors.zinc[300],
-      '--tw-prose-invert-headings': colors.white,
-      '--tw-prose-invert-lead': colors.zinc[400],
-      '--tw-prose-invert-links': colors.white,
-      '--tw-prose-invert-bold': colors.white,
-      '--tw-prose-invert-counters': colors.zinc[400],
-      '--tw-prose-invert-bullets': colors.zinc[600],
-      '--tw-prose-invert-hr': colors.zinc[700],
-      '--tw-prose-invert-quotes': colors.zinc[100],
-      '--tw-prose-invert-quote-borders': colors.zinc[700],
-      '--tw-prose-invert-captions': colors.zinc[400],
-      '--tw-prose-invert-code': colors.white,
-      '--tw-prose-invert-pre-code': colors.zinc[300],
-      '--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 50%)',
-      '--tw-prose-invert-th-borders': colors.zinc[600],
-      '--tw-prose-invert-td-borders': colors.zinc[700],
-      */
 
 @layer components {
-  .article {
-    --nm-article-body: @apply text-zinc-700; /* #374151; /* #3f3f46; #3f3f46; Zinc 700 */
-    --nm-article-headings: #18181b; /* Zinc 900 */
-    --nm-article-lead: #52525b; /* colors.zinc[600] 52525b */
-    --nm-article-links: #18181b; /* Zinc 900 */
-    --nm-article-bold: #18181b; /* Zinc 900 */
-    --nm-article-counters: #71717a; /* Zinc 500 */
-    --nm-article-bullets: #d4d4d8; /* Zinc 300 */
-    --nm-article-hr: #e4e4e7; /* Zinc 200 */
-    --nm-article-quotes: #18181b; /* Zinc 900 */
-    --nm-article-quote-borders: #e4e4e7; /* Zinc 200 */
-    --nm-article-captions: #71717a; /* Zinc 500 */
-    --tw-prose-code: #111827;
-    --tw-prose-pre-code: #e5e7eb;
-    --tw-prose-pre-bg: #1f2937;
-    --tw-prose-th-borders: #d1d5db;
-    --tw-prose-td-borders: #e5e7eb;
-    --tw-prose-invert-body: #d1d5db;
-    --tw-prose-invert-headings: #fff;
-    --tw-prose-invert-lead: #9ca3af;
-    --tw-prose-invert-links: #fff;
-    --tw-prose-invert-bold: #fff;
-    --tw-prose-invert-counters: #9ca3af;
-    --tw-prose-invert-bullets: #4b5563;
-    --tw-prose-invert-hr: #374151;
-    --tw-prose-invert-quotes: #f3f4f6;
-    --tw-prose-invert-quote-borders: #374151;
-    --tw-prose-invert-captions: #9ca3af;
-    --tw-prose-invert-code: #fff;
-    --tw-prose-invert-pre-code: #d1d5db;
-    --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
-    --tw-prose-invert-th-borders: #4b5563;
-    --tw-prose-invert-td-borders: #374151;
-    font-size: 1rem /* 16px */;
-    line-height: 1.75;
-  }
-
   /** CORE ELEMENTS **/
   .article {
-    @apply text-zinc-700 max-w-prose text-lg leading-6;
+    @apply text-zinc-700 max-w-prose text-lg font-normal leading-6;
     line-height: 1.96rem !important;
   }
 
@@ -108,6 +45,24 @@
   }
   .article :where(blockquote p:last-of-type)::after {
     content: close-quote;
+  }
+
+  .article p {
+    margin-top: 1.3333333em;
+    margin-bottom: 1.3333333em;
+  }
+
+  .article img {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  .article video {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  .article figure {
+    margin-top: 2em;
+    margin-bottom: 2em;
   }
 
   /** LISTS **/
@@ -145,7 +100,7 @@
     @apply list-disc pl-7;
   }
   .article :where(ol > li)::marker {
-    @apply text-zinc-400 font-normal;
+    @apply text-zinc-600 font-normal;
   }
   .article :where(ul > li)::marker {
     @apply text-zinc-600;
@@ -174,97 +129,25 @@
     @apply font-bold;
   }
 
-  /*
-
-
-
-  .article :where(h3) {
-    color: var(--nm-article-headings);
-    font-weight: 600;
-    font-size: 1.25em;
-    margin-top: 1.6em;
-    margin-bottom: 0.6em;
-    line-height: 1.6;
+  .article h3 {
+    @apply mt-8 mb-4 text-zinc-700 font-medium text-2xl;
+    line-height: 1.3333333 !important;
   }
-  .article :where(h3 strong) {
+
+  .article h3 strong {
     font-weight: 700;
   }
-  .article :where(h4) {
-    color: var(--nm-article-headings);
-    font-weight: 600;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-    line-height: 1.5;
-  }
-  .article :where(h4 strong) {
-    font-weight: 700;
-  }
-  .article :where(figure > *) {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .article :where(figcaption) {
-    color: var(--tw-prose-captions);
-    font-size: 0.875em;
-    line-height: 1.4285714;
-    margin-top: 0.8571429em;
-  }
-  .article :where(code) {
-    color: var(--tw-prose-code);
-    font-weight: 600;
-    font-size: 0.5em;
-  }
-  .article :where(code)::before {
-    content: '`';
-  }
-  .article :where(code)::after {
-    content: '`';
-  }
-  .article :where(a code) {
-    color: var(--tw-prose-links);
-  }
-  .article :where(pre) {
-    color: var(--tw-prose-pre-code);
-    background-color: var(--tw-prose-pre-bg);
-    overflow-x: auto;
-    font-weight: 400;
-    font-size: 0.875em;
-    line-height: 1.7142857;
-    margin-top: 1.7142857em;
-    margin-bottom: 1.7142857em;
-    border-radius: 0.375rem ;
-    padding-top: 0.8571429em;
-    padding-right: 1.1428571em;
-    padding-bottom: 0.8571429em;
-    padding-left: 1.1428571em;
 
-    font-size: 0.8888889em;
-    line-height: 1.75;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    border-radius: 0.375rem;
-    padding-top: 1em;
-    padding-right: 1.5em;
-    padding-bottom: 1em;
-    padding-left: 1.5em;
+  .article h4 {
+    @apply mt-8 mb-4 text-zinc-700 font-medium text-xl;
+    line-height: 1.3333333 !important;
   }
-  .article :where(pre code) {
-    background-color: transparent;
-    border-width: 0;
-    border-radius: 0;
-    padding: 0;
-    font-weight: inherit;
-    color: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    line-height: inherit;
+
+  .article h4 strong {
+    @apply font-bold;
   }
-  .article :where(pre code)::before {
-    content: none;
-  }
-  .article :where(pre code)::after {
-    content: none;
-  }
+
+  /* TABLE STYLES */
   .article :where(table) {
     width: 100%;
     table-layout: auto;
@@ -275,8 +158,7 @@
     line-height: 1.7142857;
   }
   .article :where(thead) {
-    border-bottom-width: 1px;
-    border-bottom-color: var(--tw-prose-th-borders);
+    @apply border-b border-zinc-300;
   }
   .article :where(thead th) {
     color: var(--tw-prose-headings);
@@ -287,11 +169,10 @@
     padding-left: 0.5714286em;
   }
   .article :where(tbody tr) {
-    border-bottom-width: 1px;
-    border-bottom-color: var(--tw-prose-td-borders);
+    @apply border-b border-zinc-200;
   }
   .article :where(tbody tr:last-child) {
-    border-bottom-width: 0;
+    @apply border-b-0;
   }
   .article :where(tbody td) {
     vertical-align: baseline;
@@ -301,28 +182,8 @@
     padding-left: 0.5714286em;
   }
 
-  .article :where(p) {
-    margin-top: 1.3333333em;
-    margin-bottom: 1.3333333em;
-  }
-  .article :where(img) {
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-  .article :where(video) {
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-  .article :where(figure) {
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-  .article :where(h2 code) {
-    font-size: 0.875em;
-  }
-  .article :where(h3 code) {
-    font-size: 0.9em;
-  }
+  /** SPACING **/
+
   .article :where(li) {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -383,6 +244,17 @@
   .article > :where(:last-child) {
     margin-bottom: 0;
   }
+  .article :where(figure > *) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .article :where(figcaption) {
+    @apply text-zinc-500 text-sm;
+    line-height: 1.4285714;
+    margin-top: 0.8571429em;
+  }
+
+  /*
 
   .prose-lg :where(blockquote):not(:where([class~='not-prose'] *)) {
     margin-top: 1.6666667em;
@@ -543,5 +415,70 @@
   .prose-lg > :where(:last-child):not(:where([class~='not-prose'] *)) {
     margin-bottom: 0;
   }
+
+  .article :where(code) {
+    color: var(--tw-prose-code);
+    font-weight: 600;
+    font-size: 0.5em;
+  }
+  .article :where(code)::before {
+    content: '`';
+  }
+  .article :where(code)::after {
+    content: '`';
+  }
+  .article :where(a code) {
+    color: var(--tw-prose-links);
+  }
+  .article :where(pre) {
+    color: var(--tw-prose-pre-code);
+    background-color: var(--tw-prose-pre-bg);
+    overflow-x: auto;
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 1.7142857;
+    margin-top: 1.7142857em;
+    margin-bottom: 1.7142857em;
+    border-radius: 0.375rem ;
+    padding-top: 0.8571429em;
+    padding-right: 1.1428571em;
+    padding-bottom: 0.8571429em;
+    padding-left: 1.1428571em;
+
+    font-size: 0.8888889em;
+    line-height: 1.75;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 0.375rem;
+    padding-top: 1em;
+    padding-right: 1.5em;
+    padding-bottom: 1em;
+    padding-left: 1.5em;
+  }
+  .article :where(pre code) {
+    background-color: transparent;
+    border-width: 0;
+    border-radius: 0;
+    padding: 0;
+    font-weight: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+  }
+  .article :where(pre code)::before {
+    content: none;
+  }
+  .article :where(pre code)::after {
+    content: none;
+  }
+
+  .article :where(h2 code) {
+    font-size: 0.875em;
+  }
+  .article :where(h3 code) {
+    font-size: 0.9em;
+  }
+
   */
 }

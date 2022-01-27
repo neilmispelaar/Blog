@@ -1,12 +1,13 @@
 code {
-  background-color: black;
+  /* background-color: black; */
   margin: 0;
-  border-radius: 3px;
+  border-radius: px !important;
   padding: 0.25rem 0.5rem;
   font-family: var(--code-font-family);
-  font-size: 0.85em;
-  color: var(--c-text-light);
-  /* background-color: var(--code-inline-bg-color); */
+  font-size: 0.75em !important;
+
+  color: var(--c-text-light, black);
+  background-color: var(--code-inline-bg-color);
 }
 
 code .token.deleted {
@@ -22,7 +23,7 @@ div[class*='language-'] {
   margin: 1rem -1.5rem;
   /*background-color: var(--code-bg-color);*/
   overflow-x: auto;
-  background-color: black;
+  background-color: #18181b;
 }
 
 li > div[class*='language-'] {
