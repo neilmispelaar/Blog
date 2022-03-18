@@ -6,19 +6,19 @@
 // - Modified readDirSync to get dirents and filter them to get just files
 // - Modified readDirSync to ignore the BlogList page /posts/index.md
 
-const fs = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
+const fs = require("fs");
+const path = require("path");
+const matter = require("gray-matter");
 
 module.exports = {
-  watch: '../posts/**/*.md',
+  watch: "../posts/**/*.md",
   load() {
     // Posts are in ../posts/** */ directory
-    const postDir = path.resolve(__dirname, '../', 'posts');
+    const postDir = path.resolve(__dirname, "../", "posts");
 
     // Remove the root index.md file (that's not a post - just the index)
     const files = getFiles(postDir).filter(
-      (file) => file.path !== path.join(postDir, 'index.md'),
+      (file) => file.path !== path.join(postDir, "index.md")
     );
 
     // Grabs the data from the post .md files
@@ -27,6 +27,7 @@ module.exports = {
     const data = files
       .map((file) => getPost(file.name, file.path, postDir))
       .sort((a, b) => {
+        console.log(b.date.time, a.date.time);
         if (isFinite(b.date.time - a.date.time)) {
           return b.date.time - a.date.time;
         } else {
@@ -49,9 +50,11 @@ function getFiles(postDir) {
   const entries = fs.readdirSync(postDir, { withFileTypes: true });
 
   // Get files within the current directory and add a path key to the file objects
-  // Ignore the index file because that's our blog listing page and not a blog post
+  // Ignore directories because those are captured recursively later
+  // Ignore any files that aren't markdown (.md) files
   const files = entries
     .filter((file) => !file.isDirectory())
+    .filter((file) => path.extname(file.name.toLowerCase()) === ".md")
     .map((file) => ({ ...file, path: path.join(postDir, file.name) }));
 
   // Get folders within the current directory
@@ -71,11 +74,11 @@ function getFiles(postDir) {
 const cache = new Map();
 
 function getPost(file, fullPath, postDir) {
-  const myString = path.join('/', 'posts', fullPath.replace(postDir, ''));
+  const myString = path.join("/", "posts", fullPath.replace(postDir, ""));
 
   const rootPath = path
-    .join('/', 'posts', fullPath.replace(postDir, ''))
-    .replace(/\.md$/, '.html');
+    .join("/", "posts", fullPath.replace(postDir, ""))
+    .replace(/\.md$/, ".html");
   const timestamp = fs.statSync(fullPath).mtimeMs;
 
   const cached = cache.get(fullPath);
@@ -83,13 +86,14 @@ function getPost(file, fullPath, postDir) {
     return cached.post;
   }
 
-  const src = fs.readFileSync(fullPath, 'utf-8');
+  const src = fs.readFileSync(fullPath, "utf-8");
   const { data } = matter(src);
   const post = {
     title: data.title,
     summary: data.summary,
     date: formatDate(data.date),
     href: rootPath,
+    cover: data.cover,
   };
 
   cache.set(fullPath, {
@@ -106,10 +110,10 @@ function formatDate(date) {
   date.setUTCHours(12);
   return {
     time: +date,
-    string: date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+    string: date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     }),
   };
 }
