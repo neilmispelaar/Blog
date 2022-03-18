@@ -4,11 +4,14 @@ lead: This is leading text to get people excited about a thing
 subtext: Updates, tips & opinions from the maintainers of Vue.js.
 layout: BlogPost
 date: 2022-01-10
+cover: "/posts/hello-world/failed-google-trends-chart.png"
 ---
 
 ## Fulminibus antiqui Talia
 
 This is a test just so you know
+
+![a screenshot of the failing Google Trends chart](./failed-google-trends-chart.png)
 
 Lorem markdownum, decus quae amittere dare,
 [contigit](http://arcus-pollentibus.net/parentum-sed.html) huius esset, erat
@@ -21,7 +24,7 @@ vellet fretum, in.
 ```js
 swipeBoxPpc.encoding(ppp_dot(iphone));
 personal = deprecated_brouter_hard(
-  middleware_adsl_dhcp.petaflopsWhite(leopardVaporwareStatus, signatureFile, 2),
+  middleware_adsl_dhcp.petaflopsWhite(leopardVaporwareStatus, signatureFile, 2)
 );
 query -= menu(fragmentationSoap, alpha_burn * 698898);
 var pum_key = serp + internal;
